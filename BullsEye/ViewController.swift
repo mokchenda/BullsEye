@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     var currentValue: Int = 0
     var targetValue: Int = 0
     @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var targetLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,10 +21,15 @@ class ViewController: UIViewController {
         startNewRound()
     }
     
+    func updateLabels() {
+        targetLabel.text = String(targetValue)
+    }
+    
     func startNewRound() {
         targetValue = Int(arc4random_uniform(100)) + 1
         currentValue = 50
         slider.value = Float(currentValue)
+        self.updateLabels()
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,7 +52,8 @@ class ViewController: UIViewController {
         let action = UIAlertAction(title: "Awesome", style: .default, handler: nil)
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
-        startNewRound()
+        self.startNewRound()
+        
     }
     
     @IBAction func knockKnock() {
