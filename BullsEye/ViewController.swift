@@ -47,13 +47,9 @@ class ViewController: UIViewController {
     
     @IBAction func showAlert() {
         print("+++ showAlert \(currentValue)" )
-        var difference: Int
-        if currentValue>targetValue {
-            difference = currentValue - targetValue
-        } else if currentValue<targetValue {
-           difference = targetValue -  currentValue
-        } else {
-            difference=0
+        var difference: Int = currentValue - targetValue
+        if (difference<0) {
+            difference *= -1
         }
         
         let message = "Ths value pf the slider is:\(currentValue)" +
