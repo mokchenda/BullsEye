@@ -21,9 +21,13 @@ class ViewController: UIViewController {
     }
     
     @IBAction func showAlert() {
-        print("Hello World")
+        //print("Hello World")
+        let alert = UIAlertController(title: "Hello World", message: "This is my first App", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Awesome", style: .default, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
     }
-
+    
 
 }
 
